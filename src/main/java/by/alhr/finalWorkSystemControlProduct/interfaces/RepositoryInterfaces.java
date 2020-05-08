@@ -14,6 +14,8 @@ public interface RepositoryInterfaces {
 
     void deleteProductById(long id);
 
+    void getListAllProduct();
+
     List<Product> getListByCategory(Category category);
 
     BigDecimal actualPriceWithDiscount(String nameProductDiscount, BigDecimal discount);

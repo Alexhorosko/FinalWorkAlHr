@@ -24,8 +24,8 @@ public class ProductService implements RepositoryInterfaces {
 
     @Override
     public Product getProductById(long idProduct) {
-        System.out.println("Получение продукта по Id:");
-        System.out.print(productMap.get(idProduct));
+        System.out.println("ПОЛУЧЕНИЕ ПРОДУКТА ПО Id:");
+        System.out.println(productMap.get(idProduct));
         return productMap.get(idProduct);
     }
 
@@ -35,8 +35,16 @@ public class ProductService implements RepositoryInterfaces {
     }
 
     @Override
+    public void getListAllProduct() {
+        System.out.println("СПИСОК ВСЕХ ПРОДУКТОВ:");
+        for (Product getAllListProduct : productMap.values()) {
+            System.out.print(getAllListProduct);
+        }
+    }
+
+    @Override
     public List<Product> getListByCategory(Category category) {
-        System.out.println("\nСписок продуктов КАТЕГОРИИ:");
+        System.out.println("\nСПИСОК ПРОДУКТА КАТЕГОРИИ:");
         List<Product> categoryList = new LinkedList<>();
         for (Product categoryProduct : productMap.values()) {
             if (categoryProduct.getCategoryProduct().equals(category)) {

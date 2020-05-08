@@ -12,6 +12,7 @@ import static org.junit.Assert.*;
 public class ProductServiceTest {
     private final ProductService productService = new ProductService();
     private final Map<Long, Product> productMapTest = new HashMap<>();
+
     private final Product productTest1 = new Product("111", BigDecimal.valueOf(1.11), "11111", Category.FRUIT);
     private final Product productTest2 = new Product("222", BigDecimal.valueOf(2.22), "22222", Category.MILK_PRODUCTS);
     private final Product productTest3 = new Product("333", BigDecimal.valueOf(3.33), "33333", Category.FRUIT);

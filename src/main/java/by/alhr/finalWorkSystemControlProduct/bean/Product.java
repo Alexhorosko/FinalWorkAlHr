@@ -9,9 +9,9 @@ public class Product implements Serializable {
     private static AtomicLong GUID = new AtomicLong();
     private String nameProduct;
     private Long idProduct;
-    private BigDecimal priceProduct;             //example: 0.14
-    BigDecimal discountProduct;          //example: 0.05, т.е 5%
-    String descriptionProduct;           //описание example: Tasty apples from Latvia
+    private BigDecimal priceProduct;
+    BigDecimal discountProduct;
+    String descriptionProduct;
     BigDecimal actualPriseProduct;
     private Category categoryProduct;
 

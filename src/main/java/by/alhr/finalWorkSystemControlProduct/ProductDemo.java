@@ -29,11 +29,11 @@ public class ProductDemo {
         productService.addProduct(product8);
         productService.addProduct(product9);
 
-//        productService.deleteProductById(6);
-//        productService.actualPriceWithDiscount("Orange", BigDecimal.valueOf(25));
+        productService.deleteProductById(6);
+        productService.actualPriceWithDiscount("Orange", BigDecimal.valueOf(25));
         productService.actualPriceWithDiscount("Banana", BigDecimal.valueOf(15));
         productService.getProductById(9);
-//        productService.getListAllProduct();
-//        productService.getListByCategory(Category.MILK_PRODUCTS);
+        productService.getListAllProduct();
+        productService.getListByCategory(Category.MILK_PRODUCTS);
     }
 }
