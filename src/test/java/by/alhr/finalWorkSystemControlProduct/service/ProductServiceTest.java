@@ -2,6 +2,7 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
+import by.alhr.finalWorkSystemControlProduct.bean.ProductValidationException;
 import org.junit.*;
 
 import java.math.BigDecimal;
@@ -16,6 +17,9 @@ public class ProductServiceTest {
     private final Product productTest1 = new Product("111", BigDecimal.valueOf(1.11), "11111", Category.FRUIT);
     private final Product productTest2 = new Product("222", BigDecimal.valueOf(2.22), "22222", Category.MILK_PRODUCTS);
     private final Product productTest3 = new Product("333", BigDecimal.valueOf(3.33), "33333", Category.FRUIT);
+
+    public ProductServiceTest() throws ProductValidationException {
+    }
 
     @Before
     public void setUpProductMapTest() {
@@ -52,7 +56,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void getProductById() {
+    public void getProductById() throws ProductValidationException {
         Product expected = productTest2;
         Product actual = productService.getProductById(2);
         assertEquals(expected, actual);

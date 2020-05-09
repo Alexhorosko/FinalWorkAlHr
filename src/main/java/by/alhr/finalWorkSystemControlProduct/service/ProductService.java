@@ -2,6 +2,7 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
+import by.alhr.finalWorkSystemControlProduct.bean.ProductValidationException;
 import by.alhr.finalWorkSystemControlProduct.interfaces.RepositoryInterfaces;
 
 import java.math.BigDecimal;
@@ -23,11 +24,24 @@ public class ProductService implements RepositoryInterfaces {
     }
 
     @Override
-    public Product getProductById(long idProduct) {
+    public Product getProductById(long idProduct) throws ProductValidationException {
         System.out.println("ПОЛУЧЕНИЕ ПРОДУКТА ПО Id:");
-        System.out.println(productMap.get(idProduct));
+//        try {
+            System.out.println(productMap.get(idProduct));
+//        } catch () {
+//       System.out.println("Ошибка! Файл не найден!");
+//        if (productMap.get(idProduct) == ')'){
+//            throw new ProductValidationException("поле не введено или введено некорректно!!!");
+//        }
         return productMap.get(idProduct);
     }
+//    //        public Book findById(String id) throws ItemNotFoundException {
+////        if (bookList.get(id) == null) {
+////            throw new ItemNotFoundException("Не найдена");
+////        }
+////        System.out.println("id книги: " + bookList.get(id));
+////        return null;
+////    }
 
     @Override
     public void deleteProductById(long idProduct) {

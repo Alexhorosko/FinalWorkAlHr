@@ -19,7 +19,14 @@ public class Product implements Serializable {
     }
 
     public Product(String nameProduct, BigDecimal priceProduct,
-                   String descriptionProduct, Category categoryProduct) {
+                   String descriptionProduct, Category categoryProduct) throws ProductValidationException{
+        if (nameProduct.isEmpty()){
+            throw new ProductValidationException("поле не введено или введено некорректно!!!");
+        } else if (priceProduct.compareTo(BigDecimal.ZERO)<=0){
+            throw new ProductValidationException("поле не введено или введено некорректно!!!");
+        }else if (descriptionProduct.isEmpty()){
+            throw new ProductValidationException("поле не введено или введено некорректно!!!");
+        }
         this.nameProduct = nameProduct;
         this.priceProduct = priceProduct;
         this.descriptionProduct = descriptionProduct;
