@@ -64,6 +64,12 @@ public class ProductServiceTest {
 
     @Test
     public void testDeleteProductById() {
+        productMapTest.remove(1L);
+        productMapTest.remove(3L);
+
+        productService.deleteProductById(1);
+        productService.deleteProductById(3);
+
         Map<Long, Product> expected = productMapTest;
         Map<Long, Product> actual = productService.productMap;
         assertEquals(expected, actual);
@@ -71,12 +77,7 @@ public class ProductServiceTest {
 
     @Test
     public void testGetListAllProduct() {
-        productMapTest.remove(1L);
-        productMapTest.remove(3L);
-
-        productService.deleteProductById(1);
-        productService.deleteProductById(3);
-
+        productService.getListAllProduct();
         Map<Long, Product> expected = productMapTest;
         Map<Long, Product> actual = productService.productMap;
         assertEquals(expected, actual);
