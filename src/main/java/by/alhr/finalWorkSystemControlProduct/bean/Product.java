@@ -18,8 +18,8 @@ public class Product implements Serializable {
     public Product() {
     }
 
-    public Product(String nameProduct, BigDecimal priceProduct,
-                   String descriptionProduct, Category categoryProduct) throws ProductValidationException{
+    public Product(String nameProduct, BigDecimal priceProduct, String descriptionProduct,
+                   Category categoryProduct) throws ProductValidationException{
         if (nameProduct.isEmpty()){
             throw new ProductValidationException("поле не введено или введено некорректно!!!");
         } else if (priceProduct.compareTo(BigDecimal.ZERO)<=0){
