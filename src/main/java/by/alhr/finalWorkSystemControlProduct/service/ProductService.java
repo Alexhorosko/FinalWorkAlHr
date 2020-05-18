@@ -2,46 +2,27 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.bean.ProductValidationException;
+import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
 import by.alhr.finalWorkSystemControlProduct.interfaces.RepositoryInterfaces;
+import by.alhr.finalWorkSystemControlProduct.repository.ProductRepository;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-//    !!!!!!!!!!ДОПИСАТЬ:
-//    В случае если основное поле не было введено - не записывать продукт,
-//    а сообщить пользователю о том, что поле не введено или введено некорректно.
+public class ProductService extends ProductRepository implements RepositoryInterfaces {
 
-public class ProductService implements RepositoryInterfaces {
-    public Map<Long, Product> productMap = new HashMap<>();
+    @Override
+    public Product getProductById(long idProduct) {
+        System.out.println("ПОЛУЧЕНИЕ ПРОДУКТА ПО Id:");
+        System.out.println(productMap.get(idProduct));
+        return productMap.get(idProduct);
+    }
 
     @Override
     public void addProduct(Product product) {
         productMap.put(product.getIdProduct(), product);
     }
-
-    @Override
-    public Product getProductById(long idProduct) throws ProductValidationException {
-        System.out.println("ПОЛУЧЕНИЕ ПРОДУКТА ПО Id:");
-//        try {
-            System.out.println(productMap.get(idProduct));
-//        } catch () {
-//       System.out.println("Ошибка! Файл не найден!");
-//        if (productMap.get(idProduct) == ')'){
-//            throw new ProductValidationException("поле не введено или введено некорректно!!!");
-//        }
-        return productMap.get(idProduct);
-    }
-//    //        public Book findById(String id) throws ItemNotFoundException {
-////        if (bookList.get(id) == null) {
-////            throw new ItemNotFoundException("Не найдена");
-////        }
-////        System.out.println("id книги: " + bookList.get(id));
-////        return null;
-////    }
 
     @Override
     public void deleteProductById(long idProduct) {
@@ -75,12 +56,15 @@ public class ProductService implements RepositoryInterfaces {
         for (Product productName : productMap.values()) {
             if (productName.getNameProduct().equals(nameProductDiscount)) {
                 productName.setDiscountProduct(discount);
-                productName.setActualPriseProduct(productName.getPriceProduct().
-                        subtract(productName.getPriceProduct().multiply(productName.getDiscountProduct()).
-                                divide(BigDecimal.valueOf(100))));
-                actualPrice = productName.getActualPriseProduct();
+                actualPrice = discountCalculation(productName);
             }
         }
         return actualPrice;
+    }
+
+    public BigDecimal discountCalculation(Product product) {
+        return product.setActualPriseProduct(product.getPriceProduct().
+                subtract(product.getPriceProduct().multiply(product.getDiscountProduct()).
+                        divide(BigDecimal.valueOf(100))));
     }
 }

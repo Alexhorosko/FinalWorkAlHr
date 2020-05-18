@@ -2,13 +2,13 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.bean.ProductValidationException;
+import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
 import org.junit.*;
 
 import java.math.BigDecimal;
 import java.util.*;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 public class ProductServiceTest {
     private final ProductService productService = new ProductService();
@@ -49,28 +49,21 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void addProduct() {
+    public void testAddProduct() {
         Map<Long, Product> expected = productMapTest;
         Map<Long, Product> actual = productService.productMap;
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getProductById() throws ProductValidationException {
+    public void getProductById() {
         Product expected = productTest2;
         Product actual = productService.getProductById(2);
         assertEquals(expected, actual);
     }
 
     @Test
-    public void getListAllProduct() {
-        Map<Long, Product> expected = productMapTest;
-        Map<Long, Product> actual = productService.productMap;
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void deleteProductById() {
+    public void testDeleteProductById() {
         productMapTest.remove(1L);
         productMapTest.remove(3L);
 
@@ -83,7 +76,15 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void getListByCategory() {
+    public void testGetListAllProduct() {
+        productService.getListAllProduct();
+        Map<Long, Product> expected = productMapTest;
+        Map<Long, Product> actual = productService.productMap;
+        assertEquals(expected, actual);
+    }
+
+    @Test
+    public void testGetListByCategory() {
         List<Product> categoryListTest = new LinkedList<>();
 
         categoryListTest.add(productTest1);
@@ -95,7 +96,7 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void actualPriceWithDiscount() {
+    public void testActualPriceWithDiscount() {
         BigDecimal expected = BigDecimal.valueOf(2.997);
         BigDecimal actual = productService.actualPriceWithDiscount("333", BigDecimal.valueOf(10));
         assertEquals(expected, actual);
