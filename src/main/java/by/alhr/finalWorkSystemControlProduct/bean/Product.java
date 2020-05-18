@@ -1,5 +1,7 @@
 package by.alhr.finalWorkSystemControlProduct.bean;
 
+import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
+
 import java.io.Serializable;
 import java.math.BigDecimal;
 import java.util.Objects;
@@ -19,7 +21,7 @@ public class Product implements Serializable {
     }
 
     public Product(String nameProduct, BigDecimal priceProduct, String descriptionProduct,
-                   Category categoryProduct) throws ProductValidationException{
+                   Category categoryProduct) throws ProductValidationException {
         if (nameProduct.isEmpty()){
             throw new ProductValidationException("поле не введено или введено некорректно!!!");
         } else if (priceProduct.compareTo(BigDecimal.ZERO)<=0){

@@ -2,27 +2,26 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
+import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
 import by.alhr.finalWorkSystemControlProduct.interfaces.RepositoryInterfaces;
+import by.alhr.finalWorkSystemControlProduct.repository.ProductRepository;
 
 import java.math.BigDecimal;
-import java.util.HashMap;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Map;
 
-public class ProductService implements RepositoryInterfaces {
-    public Map<Long, Product> productMap = new HashMap<>();
-
-    @Override
-    public void addProduct(Product product) {
-        productMap.put(product.getIdProduct(), product);
-    }
+public class ProductService extends ProductRepository implements RepositoryInterfaces {
 
     @Override
     public Product getProductById(long idProduct) {
         System.out.println("ПОЛУЧЕНИЕ ПРОДУКТА ПО Id:");
         System.out.println(productMap.get(idProduct));
         return productMap.get(idProduct);
+    }
+
+    @Override
+    public void addProduct(Product product) {
+        productMap.put(product.getIdProduct(), product);
     }
 
     @Override

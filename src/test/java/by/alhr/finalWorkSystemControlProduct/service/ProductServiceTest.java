@@ -2,7 +2,7 @@ package by.alhr.finalWorkSystemControlProduct.service;
 
 import by.alhr.finalWorkSystemControlProduct.bean.Category;
 import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.bean.ProductValidationException;
+import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
 import org.junit.*;
 
 import java.math.BigDecimal;
