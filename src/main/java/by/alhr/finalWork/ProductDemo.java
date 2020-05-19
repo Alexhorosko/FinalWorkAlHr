@@ -1,10 +1,10 @@
-package by.alhr.finalWorkProduct;
+package by.alhr.finalWork;
 
-import by.alhr.finalWorkProduct.bean.Category;
-import by.alhr.finalWorkProduct.bean.Product;
-import by.alhr.finalWorkProduct.exception.ProductValidationException;
-import by.alhr.finalWorkProduct.service.ProductDiscountService;
-import by.alhr.finalWorkProduct.service.ProductService;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.exception.ProductValidationException;
+import by.alhr.finalWork.service.ProductDiscountService;
+import by.alhr.finalWork.service.ProductService;
 
 import java.math.BigDecimal;
 

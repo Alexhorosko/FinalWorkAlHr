@@ -1,8 +1,8 @@
-package by.alhr.finalWorkProduct.service;
+package by.alhr.finalWork.service;
 
-import by.alhr.finalWorkProduct.bean.Product;
-import by.alhr.finalWorkProduct.interfaces.RepositoryDiscountInterfaces;
-import by.alhr.finalWorkProduct.repository.ProductRepository;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.interfaces.RepositoryDiscountInterfaces;
+import by.alhr.finalWork.repository.ProductRepository;
 
 import java.math.BigDecimal;
 import java.util.LinkedList;

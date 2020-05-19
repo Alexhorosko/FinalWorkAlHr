@@ -1,9 +1,9 @@
-package by.alhr.finalWorkProduct.service;
+package by.alhr.finalWork.service;
 
-import by.alhr.finalWorkProduct.bean.Category;
-import by.alhr.finalWorkProduct.bean.Product;
-import by.alhr.finalWorkProduct.interfaces.RepositoryInterfaces;
-import by.alhr.finalWorkProduct.repository.ProductRepository;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.interfaces.RepositoryInterfaces;
+import by.alhr.finalWork.repository.ProductRepository;
 
 import java.util.LinkedList;
 import java.util.List;

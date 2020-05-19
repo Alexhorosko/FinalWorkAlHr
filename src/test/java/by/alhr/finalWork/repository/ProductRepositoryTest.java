@@ -1,15 +1,15 @@
-package by.alhr.finalWorkProduct.repository;
+package by.alhr.finalWork.repository;
 
-import by.alhr.finalWorkProduct.bean.Category;
-import by.alhr.finalWorkProduct.bean.Product;
-import by.alhr.finalWorkProduct.exception.ProductValidationException;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.exception.ProductValidationException;
 import org.junit.Test;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 
-import static by.alhr.finalWorkProduct.repository.ProductRepository.productMap;
+import static by.alhr.finalWork.repository.ProductRepository.productMap;
 import static org.junit.Assert.*;
 
 public class ProductRepositoryTest {

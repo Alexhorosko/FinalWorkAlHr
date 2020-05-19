@@ -1,6 +1,6 @@
-package by.alhr.finalWorkProduct.bean;
+package by.alhr.finalWork.bean;
 
-import by.alhr.finalWorkProduct.exception.ProductValidationException;
+import by.alhr.finalWork.exception.ProductValidationException;
 import lombok.*;
 
 import java.io.Serializable;

@@ -1,7 +1,7 @@
-package by.alhr.finalWorkProduct.interfaces;
+package by.alhr.finalWork.interfaces;
 
-import by.alhr.finalWorkProduct.bean.Category;
-import by.alhr.finalWorkProduct.bean.Product;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
 
 import java.util.List;
 
