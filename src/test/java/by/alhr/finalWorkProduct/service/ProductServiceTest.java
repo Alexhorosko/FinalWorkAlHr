@@ -1,8 +1,8 @@
-package by.alhr.finalWorkSystemControlProduct.service;
+package by.alhr.finalWorkProduct.service;
 
-import by.alhr.finalWorkSystemControlProduct.bean.Category;
-import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
+import by.alhr.finalWorkProduct.bean.Category;
+import by.alhr.finalWorkProduct.bean.Product;
+import by.alhr.finalWorkProduct.exception.ProductValidationException;
 import org.junit.*;
 
 import java.math.BigDecimal;
@@ -92,13 +92,6 @@ public class ProductServiceTest {
 
         List<Product> expected = categoryListTest;
         List<Product> actual = productService.getListByCategory(Category.FRUIT);
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testActualPriceWithDiscount() {
-        BigDecimal expected = BigDecimal.valueOf(2.997);
-        BigDecimal actual = productService.actualPriceWithDiscount("333", BigDecimal.valueOf(10));
         assertEquals(expected, actual);
     }
 }

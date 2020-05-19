@@ -1,4 +1,4 @@
-package by.alhr.finalWorkSystemControlProduct.exception;
+package by.alhr.finalWorkProduct.exception;
 
 public class ProductValidationException extends Exception {
 

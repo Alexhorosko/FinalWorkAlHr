@@ -1,4 +1,4 @@
-package by.alhr.finalWorkSystemControlProduct.bean;
+package by.alhr.finalWorkProduct.bean;
 
 public enum Category {
     FRUIT,

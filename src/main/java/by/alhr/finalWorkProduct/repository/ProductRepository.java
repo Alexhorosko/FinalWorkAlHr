@@ -1,8 +1,8 @@
-package by.alhr.finalWorkSystemControlProduct.repository;
+package by.alhr.finalWorkProduct.repository;
 
-import by.alhr.finalWorkSystemControlProduct.bean.Category;
-import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
+import by.alhr.finalWorkProduct.bean.Category;
+import by.alhr.finalWorkProduct.bean.Product;
+import by.alhr.finalWorkProduct.exception.ProductValidationException;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
@@ -10,7 +10,6 @@ import java.util.Map;
 
 public class ProductRepository {
     public static Map<Long, Product> productMap = new HashMap<>();
-    Product product;
 
     public void saveFirstProductToMap() throws ProductValidationException {
         productMap.put(1L, new Product("Milk", BigDecimal.valueOf(2.12), "Milk from Minsk", Category.MILK_PRODUCTS));
