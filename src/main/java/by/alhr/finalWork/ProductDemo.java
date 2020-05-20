@@ -23,7 +23,7 @@ public class ProductDemo {
 
         productService.deleteProductById(4);
 
-        productService.getProductById(9);
+        productService.getProductById(2);
 
         productService.getListAllProduct();
         productService.getListByCategory(Category.FRUIT);
