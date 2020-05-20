@@ -5,12 +5,12 @@ import lombok.*;
 
 import java.io.Serializable;
 import java.math.BigDecimal;
-import java.util.Objects;
 import java.util.concurrent.atomic.AtomicLong;
 
 @Getter
 @Setter
 @NoArgsConstructor
+@EqualsAndHashCode
 
 public class Product implements Serializable {
     private static AtomicLong GUID = new AtomicLong();
@@ -36,24 +36,6 @@ public class Product implements Serializable {
         this.descriptionProduct = descriptionProduct;
         this.categoryProduct = categoryProduct;
         idProduct = GUID.incrementAndGet();
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Product product = (Product) o;
-        return Objects.equals(nameProduct, product.nameProduct) &&
-                Objects.equals(priceProduct, product.priceProduct) &&
-                Objects.equals(discountProduct, product.discountProduct) &&
-                Objects.equals(descriptionProduct, product.descriptionProduct) &&
-                Objects.equals(actualPriseProduct, product.actualPriseProduct) &&
-                categoryProduct == product.categoryProduct;
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(nameProduct, priceProduct, discountProduct, descriptionProduct, actualPriseProduct, categoryProduct);
     }
 
     @Override
