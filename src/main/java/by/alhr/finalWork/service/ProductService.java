@@ -1,12 +1,10 @@
-package by.alhr.finalWorkSystemControlProduct.service;
+package by.alhr.finalWork.service;
 
-import by.alhr.finalWorkSystemControlProduct.bean.Category;
-import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
-import by.alhr.finalWorkSystemControlProduct.interfaces.RepositoryInterfaces;
-import by.alhr.finalWorkSystemControlProduct.repository.ProductRepository;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.interfaces.RepositoryInterfaces;
+import by.alhr.finalWork.repository.ProductRepository;
 
-import java.math.BigDecimal;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -48,23 +46,5 @@ public class ProductService extends ProductRepository implements RepositoryInter
             }
         }
         return categoryList;
-    }
-
-    @Override
-    public BigDecimal actualPriceWithDiscount(String nameProductDiscount, BigDecimal discount) {
-        BigDecimal actualPrice = null;
-        for (Product productName : productMap.values()) {
-            if (productName.getNameProduct().equals(nameProductDiscount)) {
-                productName.setDiscountProduct(discount);
-                actualPrice = discountCalculation(productName);
-            }
-        }
-        return actualPrice;
-    }
-
-    public BigDecimal discountCalculation(Product product) {
-        return product.setActualPriseProduct(product.getPriceProduct().
-                subtract(product.getPriceProduct().multiply(product.getDiscountProduct()).
-                        divide(BigDecimal.valueOf(100))));
     }
 }

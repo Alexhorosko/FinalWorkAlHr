@@ -1,8 +1,8 @@
-package by.alhr.finalWorkSystemControlProduct.service;
+package by.alhr.finalWork.service;
 
-import by.alhr.finalWorkSystemControlProduct.bean.Category;
-import by.alhr.finalWorkSystemControlProduct.bean.Product;
-import by.alhr.finalWorkSystemControlProduct.exception.ProductValidationException;
+import by.alhr.finalWork.bean.Category;
+import by.alhr.finalWork.bean.Product;
+import by.alhr.finalWork.exception.ProductValidationException;
 import org.junit.*;
 
 import java.math.BigDecimal;
@@ -56,9 +56,9 @@ public class ProductServiceTest {
     }
 
     @Test
-    public void getProductById() {
+    public void testGetProductById() {
         Product expected = productTest2;
-        Product actual = productService.getProductById(2);
+        Product actual = productService.getProductById(productTest2.getIdProduct());
         assertEquals(expected, actual);
     }
 
@@ -67,8 +67,8 @@ public class ProductServiceTest {
         productMapTest.remove(1L);
         productMapTest.remove(3L);
 
-        productService.deleteProductById(1);
-        productService.deleteProductById(3);
+        productService.deleteProductById(1L);
+        productService.deleteProductById(3L);
 
         Map<Long, Product> expected = productMapTest;
         Map<Long, Product> actual = productService.productMap;
@@ -82,7 +82,6 @@ public class ProductServiceTest {
         Map<Long, Product> actual = productService.productMap;
         assertEquals(expected, actual);
     }
-
     @Test
     public void testGetListByCategory() {
         List<Product> categoryListTest = new LinkedList<>();
@@ -92,13 +91,6 @@ public class ProductServiceTest {
 
         List<Product> expected = categoryListTest;
         List<Product> actual = productService.getListByCategory(Category.FRUIT);
-        assertEquals(expected, actual);
-    }
-
-    @Test
-    public void testActualPriceWithDiscount() {
-        BigDecimal expected = BigDecimal.valueOf(2.997);
-        BigDecimal actual = productService.actualPriceWithDiscount("333", BigDecimal.valueOf(10));
         assertEquals(expected, actual);
     }
 }
